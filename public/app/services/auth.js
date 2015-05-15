@@ -1,7 +1,12 @@
 angular.module('hack.authService', [])
 
 .factory('Auth', function ($http, $location, $window) {
+  var username = null;
+  var getUser = function(){
+    return username;
+  }
   var signin = function (user) {
+    username = user.username;
     return $http({
       method: 'POST',
       url: '/api/users/signin',
@@ -13,6 +18,7 @@ angular.module('hack.authService', [])
   };
 
   var signup = function (user) {
+    username = user.username;
     return $http({
       method: 'POST',
       url: '/api/users/signup',
@@ -30,6 +36,7 @@ angular.module('hack.authService', [])
   var signout = function () {
     $window.localStorage.removeItem('com.hack');
     $window.localStorage.removeItem('hfUsers');
+    $window.localStorage.removeItem('hfUser');
   };
 
 
@@ -37,6 +44,7 @@ angular.module('hack.authService', [])
     signin: signin,
     signup: signup,
     isAuth: isAuth,
-    signout: signout
+    signout: signout,
+    getUser: getUser
   };
 });

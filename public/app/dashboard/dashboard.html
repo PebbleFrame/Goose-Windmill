@@ -1,0 +1,6 @@
+<div class="dashboard" ng-controller="DashboardController">
+  <h2 class="dashboard-header">Dashboard</h2>
+  <div class="followed-user" ng-repeat="user in following">
+    {{user}}   <span ng-click="removeFollower(user);">x</span>
+  </div>
+</div>
