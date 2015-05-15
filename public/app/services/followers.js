@@ -58,6 +58,17 @@ angular.module('hack.followService', ['angular-jwt'])
 
   };
 
+
+  var selected = [];
+
+  var addSelected = function(username){
+    selected.push(username);
+  }
+  var removeSelected = function(username){
+    var userIndex = selected.indexOf(username)
+    selected.splice(userIndex, 1);
+  }
+
   var localStorageUsers = function(){
     return $window.localStorage.getItem('hfUsers');
   }
@@ -95,6 +106,8 @@ angular.module('hack.followService', ['angular-jwt'])
     addFollower: addFollower,
     removeFollower: removeFollower,
     localToArr: localToArr,
+    addSelected: addSelected,
+    removeSelected: removeSelected,
     init: init
   }
 })

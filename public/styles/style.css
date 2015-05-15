@@ -171,7 +171,7 @@ button {
   border-radius: 2px;
 }
 
-.followed-user {
+.userIgnored {
   padding: 7px;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -180,14 +180,33 @@ button {
   margin-right: 5px;
   margin-bottom: 5px;
   color: black;
-  background: white;
+  background: green;
   opacity: 0.8;
   font-size: 14px;
   border-radius: 1px;
 }
 
-.followed-user:hover {
-  background: lightgrey;
+.userSelected {
+  padding: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  float: left;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: black;
+  background: red;
+  opacity: 0.8;
+  font-size: 14px;
+  border-radius: 1px;
+}
+
+.userSelected:hover {
+  background: purple;
+}
+
+.userIgnored:hover {
+  background: orange;
 }
 
 .story-title {
