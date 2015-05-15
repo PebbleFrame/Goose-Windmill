@@ -74,7 +74,7 @@ button {
 }
 
 
-.currently-following{
+.dashboard{
   width: 305px;
   /*height: 100%;*/
   margin: 0;
@@ -83,11 +83,10 @@ button {
   margin-top: 30px;
 }
 
-.following-header {
+.dashboard-header {
   color: #FF8C00;
   text-align: center;
-  margin-top: 160px;
-  /*top: 400px;*/
+  margin-top: 200px;
   left: 20px;
   position: absolute;
   transform: rotate(-90deg);
@@ -276,8 +275,8 @@ button {
 
 .logged-header {
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 40px;
+  margin-bottom: 5px;
+  font-size: 28px;
   letter-spacing: -2px;
   color: #404040;
 }
@@ -332,3 +331,12 @@ button {
 
 }
 .graph:hover    { background:#793F78; }
+
+
+.center-me {
+  margin: 0 auto;
+}
+
+.username{
+  margin-top: 5px;
+}
