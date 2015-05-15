@@ -1,7 +1,0 @@
-<div ng-controller="SearchController">
-  <div class="userDisplay story" ng-repeat="story in stories | limitTo: index">
-    <div ng-include="'app/partials/story.html'" class="story-holder"></div>
-  </div>
-
-  <div class="more-button" ng-show="index < stories.length && stories.length > 0" ng-click="index = index + perPage;">more</div>
-</div>
