@@ -8,7 +8,7 @@ angular.module('hack.auth', [])
   $scope.loggedIn = Auth.isAuth();
   if($scope.loggedIn){
     $scope.username = $window.localStorage.getItem('hfUser');
-  };
+  }
   $scope.badLogin = false;
   $scope.badLoginMessage = '';
   $scope.badSignup = false;
