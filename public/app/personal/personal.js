@@ -1,6 +1,6 @@
 angular.module('hack.personal', [])
 
-.controller('PersonalController', function ($scope, $window, Links, Followers) {
+.controller('PersonalController', function ($scope, $window, Links, Followers, Graph) {
   $scope.stories = Links.personalStories;
   $scope.users = Followers.following;
   $scope.perPage = 30;
@@ -12,6 +12,11 @@ angular.module('hack.personal', [])
   
   var fetchUsers = function(){
     Links.getPersonalStories($scope.users);
+  };
+
+  $scope.graphStory = function(storyId){
+    Graph.makeGraph(storyId);
+    $scope.currentGraphedStory = storyId;
   };
   
   init();

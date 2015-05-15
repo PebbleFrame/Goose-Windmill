@@ -43,7 +43,39 @@ angular.module('hack.graphService', [])
   {
       var decColor =0x1000000+ blue + 0x100 * green + 0x10000 *red ;
       return '#'+decColor.toString(16).substr(1);
-  }
+  };
+
+  var mapToSpectrum = function(val, max) {
+    var r, g, b;
+    var i = val;
+    var colorValueMax = 175;
+    var colorValueMin = 80;
+    if (i >= max) {
+      i = max-1;
+    }
+    if (i <= max/4) {
+      r = colorValueMin + (i / (max/4)) * (colorValueMax-colorValueMin);
+    } else if (i <= max/2) {
+      r = colorValueMin + ((0.5*max-i) / (max/4)) * (colorValueMax-colorValueMin);
+    } else {
+      r = colorValueMin;
+    }
+    if (i > max/4 && i <= max/2) {
+      g = colorValueMin + ((i-max/4) / (max/4)) * (colorValueMax-colorValueMin);
+    } else if (i > max/2 && i <= (3/4)*max) {
+      g = colorValueMin + ((0.75*max-i) / (max/4)) * (colorValueMax-colorValueMin);
+    } else {
+      g = colorValueMin;
+    }
+    if (i > max/2 && i <= 0.75*max) {
+      b = colorValueMin + (i-max/2)/(max/4) * (colorValueMax-colorValueMin);
+    } else if (i > 0.75*max) {
+      b = colorValueMin + (max-i)/(max/4) * (colorValueMax-colorValueMin);
+    } else {
+      b = colorValueMin;
+    }
+    return rgb2Html(r,g,b);
+  };
 
   var buildTree = function (treeNode, level, y, parentAngle) {
     var curNode = {};
@@ -56,13 +88,13 @@ angular.module('hack.graphService', [])
     if (level === 0) {
       curNode.size = 5;
     } else {
-      curNode.size = treeNode.text.length/100 + 2;
+      curNode.size = treeNode.text.length/100 + 5;
       if (curNode.size > maxNodeSize) {
         maxNodeSize = curNode.size;
       }
     }
     curNode.label = treeNode.author + ": " + countChildren(treeNode) + ' replies';
-    curNode.color = rgb2Html(255-level*50, 50+level*25, level*50);
+    curNode.color = mapToSpectrum(level+1, 10);
     var radius = level; // + (6*Math.random() - 3);
     var angle;
     if (level === 0) {
@@ -132,6 +164,9 @@ sigma.canvas.nodes.border = function(node, context, settings) {
       renderer: {
         type: 'canvas',
         container: ('sigma-container-' + storyId)
+      },
+      settings: {
+        defaultNodeType: 'border'
       }
     });
 
