@@ -1,5 +1,5 @@
 <div class="personal-container">
-  <div class="story" ng-repeat="story in stories | limitTo: index | filter:searchFilter">
+  <div class="story" ng-repeat="story in stories | filter:searchFilter | limitTo: index ">
 
     <!-- uses this if item is a story -->
     <div ng-show="story.isComment === undefined" ng-include="'app/partials/story.html'">

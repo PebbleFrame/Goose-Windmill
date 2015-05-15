@@ -1,6 +1,5 @@
 <div ng-controller="TopStoriesController">
-  <div id="sigma-container"></div>
-  <div class="userDisplay story" ng-repeat="story in stories | limitTo: index | filter:searchFilter">
+  <div class="userDisplay story" ng-repeat="story in stories | filter:searchFilter | limitTo: index ">
     <div ng-include="'app/partials/story.html'" class="story-holder"></div>
   </div>
 
