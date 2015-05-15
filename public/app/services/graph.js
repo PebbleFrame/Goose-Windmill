@@ -126,12 +126,12 @@ sigma.canvas.nodes.border = function(node, context, settings) {
 };
 
   var drawGraph = function (storyId) {
+    console.log('sigma-container-' + storyId);
     s = new sigma({
       graph: g,
-      container: 'sigma-container-' + storyId,
       renderer: {
         type: 'canvas',
-        container: 'example-graph'
+        container: ('sigma-container-' + storyId)
       }
     });
 
