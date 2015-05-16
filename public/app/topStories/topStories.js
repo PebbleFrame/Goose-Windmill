@@ -1,6 +1,6 @@
 angular.module('hack.topStories', [])
 
-.controller('TopStoriesController', function ($scope, $window, Links, Followers, ezfb, Graph) {
+.controller('TopStoriesController', function ($scope, $window, Links, Dashboard, ezfb, Graph) {
   angular.extend($scope, Links);
   $scope.stories = Links.topStories;
   console.log($scope.stories);
@@ -20,14 +20,14 @@ angular.module('hack.topStories', [])
     $scope.currentGraphedStory = storyId;
   };
 
-  $scope.currentlyFollowing = Followers.following;
+  $scope.currentlyFollowing = Dashboard.following;
 
   $scope.getData = function() {
     Links.getTopStories();
   };
   
   $scope.addUser = function(username) {
-    Followers.addFollower(username);
+    Dashboard.addFollower(username);
   };
 
   $scope.getData();
