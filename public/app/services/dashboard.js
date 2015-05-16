@@ -73,13 +73,21 @@ angular.module('hack.dashboardService', ['angular-jwt'])
     selectedUsers.push(username);
   }
   var removeSelectedUser = function(username){
-    var userIndex = selected.indexOf(username)
+    var userIndex = selectedUsers.indexOf(username)
     selectedUsers.splice(userIndex, 1);
   }
 
   var selectedhashes = [];
   var addSelectedHash = function(){};
   var removeSelectedHash = function(){};
+
+  var deleteSelected = function(){
+    for(var i = 0; i < selectedUsers.length;i++){
+      removeFollower(selectedUsers[i]);
+    }
+  };
+
+
 
   var localStorageUsers = function(){
     return $window.localStorage.getItem('hfUsers');
@@ -118,8 +126,13 @@ angular.module('hack.dashboardService', ['angular-jwt'])
     addFollower: addFollower,
     removeFollower: removeFollower,
     localToArr: localToArr,
-    addSelected: addSelected,
-    removeSelected: removeSelected,
+    addSelectedUser: addSelectedUser,
+    removeSelectedUser: removeSelectedUser,
+    addSelectedHash: addSelectedHash,
+    removeSelectedHash: removeSelectedHash,
+    saveFeed: saveFeed,
+    deleteFeed: deleteFeed,
+    deleteSelected: deleteSelected,
     init: init
   }
 })

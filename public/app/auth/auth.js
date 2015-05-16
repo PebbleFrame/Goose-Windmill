@@ -1,7 +1,6 @@
 angular.module('hack.auth', [])
 
-.controller('AuthController', ["$scope", "$window", "$location", "Auth", "Followers", 
-  function ($scope, $window, $location, Auth, Followers) {
+.controller('AuthController',function ($scope, $window, $location, Auth, Dashboard) {
   $scope.username = null;
   $scope.user = {};
   $scope.newUser = {};
@@ -25,7 +24,7 @@ angular.module('hack.auth', [])
         $window.localStorage.setItem('hfUsers', data.followers)
         $window.localStorage.setItem('hfUser', Auth.getUser())
 
-        Followers.init(data.followers.split(","));
+        Dashboard.init(data.followers.split(","));
 
         $scope.loggedIn = true;
         $scope.user = {};
@@ -41,7 +40,7 @@ angular.module('hack.auth', [])
   };
 
   $scope.signup = function () {
-    $scope.newUser.following = Followers.following.join(',');
+    $scope.newUser.following = Dashboard.following.join(',');
 
     Auth.signup($scope.newUser)
       .then(function (data) {
@@ -66,9 +65,9 @@ angular.module('hack.auth', [])
   };
 
   $scope.logout = function () {
-    Followers.init();
     Auth.signout();
+    Dashboard.init();
     $scope.loggedIn = false;
     $scope.username = null;
   }
-}]);
+});

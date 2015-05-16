@@ -1,12 +1,12 @@
 angular.module('hack.userDashboard', [])
 
-.controller('DashboardController', function ($scope, Followers,Dashboard) {
+.controller('DashboardController', function ($scope, Dashboard) {
   angular.extend($scope,Dashboard);
+  $scope.deleteSelected();
 })
 
 .controller('FollowingController', function ($scope,Dashboard) {
   angular.extend($scope,Dashboard);
-  angular.extend($scope,Followers);
   console.log("HEllo")
   $scope.userSelected = false;
   $scope.toggleUser = function(user){
@@ -23,7 +23,6 @@ angular.module('hack.userDashboard', [])
 })
 .controller('HashController', function ($scope,Dashboard) {
   angular.extend($scope,Dashboard);
-  angular.extend($scope,Followers);
   $scope.hashSelected = false;
   $scope.toggleHash = function(hash){
   	if($scope.hashSelected ===false){
@@ -38,7 +37,6 @@ angular.module('hack.userDashboard', [])
 })
 .controller('FeedController', function ($scope,Dashboard) {
   angular.extend($scope,Dashboard);
-  angular.extend($scope,Followers);
   $scope.hashSelected = false;
   $scope.selectFeed = function(feed){
    	if($scope.feedSelected ===false){

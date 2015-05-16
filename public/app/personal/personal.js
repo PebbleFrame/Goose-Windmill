@@ -1,8 +1,8 @@
 angular.module('hack.personal', [])
 
-.controller('PersonalController', function ($scope, $window, Links, Followers, Graph) {
+.controller('PersonalController', function ($scope, $window, Links, Dashboard, Graph) {
   $scope.stories = Links.personalStories;
-  $scope.users = Followers.following;
+  $scope.users = Dashboard.following;
   $scope.perPage = 30;
   $scope.index = $scope.perPage;
 

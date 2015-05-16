@@ -180,7 +180,7 @@ button {
   margin-right: 5px;
   margin-bottom: 5px;
   color: black;
-  background: green;
+  background: grey;
   opacity: 0.8;
   font-size: 14px;
   border-radius: 1px;
@@ -195,18 +195,56 @@ button {
   margin-right: 5px;
   margin-bottom: 5px;
   color: black;
-  background: red;
+  background: #0F9D58;
   opacity: 0.8;
   font-size: 14px;
   border-radius: 1px;
 }
 
 .userSelected:hover {
-  background: purple;
+  background: grey;
 }
 
 .userIgnored:hover {
-  background: orange;
+  background: #0F9D58;
+}
+
+.deleteSelected {
+  padding: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  float: left;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 10%;
+  margin-top: 50%;
+  color: black;
+  background: #D95F66;
+  opacity: 0.8;
+  font-size: 14px;
+  border-radius: 1px;
+  display:inline-block;
+}
+
+.deleteSelected:hover {
+  background: #333;
+}
+
+.saveFeed {
+  padding: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  float: left;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 40px;
+  margin-top: 0px;
+  color: black;
+  background: #a7cc51;
+  opacity: 0.8;
+  font-size: 14px;
+  border-radius: 1px;
+  display:block;
 }
 
 .story-title {
@@ -368,4 +406,24 @@ button {
 
 .username{
   margin-top: 5px;
+}
+
+.followingController{
+  display: block;
+  margin-top :25%;
+  margin-bottom: 20px;
+  clear:left;
+}
+.hashController{
+  display: block;
+  margin-top :25%;
+  margin-bottom: 20px;
+  clear: left;
+}
+
+.feedController{
+  display: block;
+  margin-top :25%;
+  margin-bottom: 20px;
+  clear: left;
 }

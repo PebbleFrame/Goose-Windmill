@@ -5,7 +5,6 @@ angular.module('hack', [
   'hack.userDashboard',
   'hack.linkService',
   'hack.authService',
-  'hack.followService',
   'hack.dashboardService',
   'hack.graphService',
   'hack.tabs',
